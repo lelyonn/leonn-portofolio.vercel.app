@@ -205,21 +205,13 @@ export const blogPosts: BlogPost[] = [
     readingTime: "4 min",
     tags: ["CTF", "Web", "Pentest"],
     content: `
-# Web Vulnerability Writeup: Cyber Academy's PT Vulnapp Challenge
+Web Vulnerability Writeup: Cyber Academy's PT Vulnapp Challenge
 
-## Overview
 
 This writeup summarizes my penetration testing report for PT Vulnapp, a vulnerable job portal web application used in the Cyber Academy Penetration Testing Challenge.
-
 The assessment was conducted on 17 April 2026 - 18 April 2026 using a grey-box testing approach. The main objective was to identify, validate, and document security weaknesses that could affect the confidentiality, integrity, and availability of the application.
 
-Target application:
-
-\`\`\`txt
-https://jobportal.vulnapp.id
-\`\`\`
-
-## Scope
+Scope
 
 The assessment focused on the main web application and several critical security areas, including:
 
@@ -233,7 +225,7 @@ The assessment focused on the main web application and several critical security
 - Security header configuration
 - Information disclosure
 
-## Methodology
+Methodology
 
 The test followed a structured penetration testing workflow:
 
@@ -248,7 +240,6 @@ The test followed a structured penetration testing workflow:
 The assessment identified 10 vulnerabilities in total.
 
 | Severity | Total |
-|---|---:|
 | Critical | 4 |
 | High | 2 |
 | Medium | 3 |
@@ -256,7 +247,7 @@ The assessment identified 10 vulnerabilities in total.
 
 The most critical issues were SQL Injection, sensitive data exposure, and unrestricted file upload.
 
-## Vulnerability List
+Vulnerability List
 
 | No | Finding | Severity | Status |
 |---:|---|---|---|
@@ -271,9 +262,9 @@ The most critical issues were SQL Injection, sensitive data exposure, and unrest
 | 9 | Missing Security Headers | Medium | Open |
 | 10 | Information Disclosure - Nginx Version | Low | Open |
 
-## Key Findings
+Key Findings
 
-### SQL Injection - Login Bypass
+SQL Injection - Login Bypass
 
 The login form was vulnerable to SQL Injection. This allowed authentication logic to be bypassed and could let an attacker access the system without valid credentials.
 
@@ -288,7 +279,7 @@ Recommendation:
 
 Use parameterized queries or prepared statements for all database interactions.
 
-### SQL Injection - Error Based
+SQL Injection - Error Based
 
 The application returned detailed database error messages when invalid input was submitted.
 
@@ -302,7 +293,7 @@ Recommendation:
 
 Disable detailed database errors in public responses and use custom error handling.
 
-### Time-Based Blind SQL Injection
+Time-Based Blind SQL Injection
 
 The job search feature was vulnerable to time-based blind SQL Injection. Attackers could infer database behavior by measuring response delay.
 
@@ -358,7 +349,8 @@ Recommendation:
 
 Use UUIDs or non-predictable identifiers and enforce server-side authorization checks.
 
-### Insecure Session Termination
+
+Insecure Session Termination
 
 The logout process did not properly invalidate the session on the server side.
 
@@ -372,7 +364,7 @@ Recommendation:
 
 Invalidate sessions on logout, apply session timeout, and expire cookies properly.
 
-### Weak Password Policy
+Weak Password Policy
 
 The registration feature allowed weak passwords.
 
@@ -386,7 +378,7 @@ Recommendation:
 
 Enforce strong password rules on the server side and block common passwords.
 
-### Missing Security Headers
+Missing Security Headers
 
 The application did not configure important browser security headers such as Content-Security-Policy and X-Frame-Options.
 
@@ -405,7 +397,7 @@ X-Frame-Options: SAMEORIGIN
 Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none';
 \`\`\`
 
-### Information Disclosure - Nginx Version
+Information Disclosure - Nginx Version
 
 The server exposed version information through response headers.
 
@@ -423,7 +415,7 @@ Disable server version disclosure using:
 server_tokens off;
 \`\`\`
 
-## Lessons Learned
+Lessons Learned
 
 This challenge helped me understand that penetration testing is not only about finding vulnerabilities. A useful security assessment must also explain impact, prioritize risk, and provide remediation steps that developers can apply.
 
@@ -434,7 +426,7 @@ The most valuable lessons from this assessment were:
 - How to write professional remediation advice
 - How to communicate security risk clearly
 
-## Skills Practiced
+Skills Practiced
 
 Through this challenge, I practiced:
 
@@ -447,7 +439,7 @@ Through this challenge, I practiced:
 - CVSS-based risk assessment
 - Technical report writing
 
-## Final Note
+Final Note
 
 This is a public summary of the assessment. The full technical report is available in PDF format through the attached writeup link.
 `,
