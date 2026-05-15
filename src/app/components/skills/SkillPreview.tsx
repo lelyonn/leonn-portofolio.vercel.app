@@ -37,6 +37,21 @@ export function SkillPreview({ skill }: { skill: Skill | null }) {
                   </div>
                 ))}
               </div>
+              {skill.links && skill.links.length > 0 && (
+                <div className="mt-6 flex flex-wrap justify-center gap-2">
+                  {skill.links.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm text-foreground/85 transition-colors hover:border-foreground hover:bg-foreground hover:text-background"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
               <div className="mt-6 text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
                 Click the chip to read the full breakdown
               </div>

@@ -121,15 +121,27 @@ export const otherSkills: Skill[] = [
     tools: ["After Effects", "Adobe Premiere", "CapCut"],
     links: [
       {
-        label: "Link to my Paskah event video",
-        href: "#",
-        note: "https://drive.google.com/file/d/1yyPnyfp4ONpqAeJDky0uCTrrfn1_mG4X/view?usp=sharing",
+        label: "Watch Event Documentation",
+        href: "https://drive.google.com/file/d/1yyPnyfp4ONpqAeJDky0uCTrrfn1_mG4X/view?usp=sharing",
+        note: "Campus Easter event video documentation.",
       },
     ],
   },
 ];
 
-export const projects = [
+type Project = {
+  n: string;
+  title: string;
+  blurb: string;
+  tags: string[];
+  year: string;
+  image: string;
+  credit: string;
+  github: string | null;
+  live: string | null;
+};
+
+export const projects: Project[] = [
  // {
   //  n: "01",
   //  title: "COMING SOON!",
