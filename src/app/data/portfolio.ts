@@ -121,26 +121,26 @@ export const otherSkills: Skill[] = [
     tools: ["After Effects", "Adobe Premiere", "CapCut"],
     links: [
       {
-        label: "Add a link to a teaser or short film",
+        label: "Link to my Paskah event video",
         href: "#",
-        note: "Replace this href with a YouTube / Drive / Vimeo link",
+        note: "https://drive.google.com/file/d/1yyPnyfp4ONpqAeJDky0uCTrrfn1_mG4X/view?usp=sharing",
       },
     ],
   },
 ];
 
 export const projects = [
-  {
-    n: "01",
-    title: "COMING SOON!",
-    blurb: "sABAR YAH",
-    tags: ["BRB",],
-    year: "2025",
-    image: "",
-    credit: "Photo ",
-    github: null,
-    live: null,
-  },
+ // {
+  //  n: "01",
+  //  title: "COMING SOON!",
+  //  blurb: "sABAR YAH",
+  //  tags: ["BRB",],
+   // year: "2025",
+  //  image: "",
+   // credit: "Photo ",
+   // github: null,
+   // live: null,
+  //},
 ];
 
 export const footerLinks = [
