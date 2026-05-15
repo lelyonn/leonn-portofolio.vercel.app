@@ -32,10 +32,15 @@ export const techSkills: Skill[] = [
     tools: ["Burp Suite", "Wireshark", "Nmap", "ParrotOS", "TryHackMe", "HTB"],
     links: [
       {
-        label: "See full project breakdowns & writeups",
+        label: "See my full project here",
         href: "/#/projects",
-        note: "CTF writeups, bug bounty reports, and lab notes",
+        note: "Project i create about cyber security",
       },
+      {
+        label: "Read my security-focused blog posts",
+        href: "/#/blog",
+        note: "CTF writeups, bug bounty reports, and lab notes",
+      }
     ],
   },
   {
