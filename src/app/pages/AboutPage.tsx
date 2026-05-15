@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowUpRight, Calendar, ExternalLink, Github, GraduationCap, Instagram, Linkedin, MapPin } from "lucide-react";
 import portraitPhoto from "@/imports/IMG_20260319_010547_345.jpg";
 import { competitions, otherSkills, techSkills } from "../data/portfolio";
+import { GitHubStatImage } from "../components/github/GitHubStatImage";
 import { SharedFooter } from "../components/layout/SharedFooter";
 import { SkillMarquee } from "../components/skills/SkillMarquee";
 import { SkillPreview } from "../components/skills/SkillPreview";
@@ -290,11 +291,11 @@ export function AboutPage({
                   rel="noreferrer"
                   className="group overflow-hidden rounded-2xl border border-border bg-background transition-colors hover:border-foreground/20"
                 >
-                  <img
+                  <GitHubStatImage
                     src="https://github-readme-stats.vercel.app/api?username=lelyonn&show_icons=true&hide_border=true&bg_color=0a0a0b&title_color=c8a96a&text_color=8a8a87&icon_color=c8a96a&ring_color=c8a96a&include_all_commits=true&count_private=true"
                     alt="GitHub stats for lelyonn"
-                    className="h-auto w-full"
-                    loading="lazy"
+                    fallbackTitle="GitHub stats"
+                    compact
                   />
                 </a>
                 <a
@@ -303,11 +304,11 @@ export function AboutPage({
                   rel="noreferrer"
                   className="group overflow-hidden rounded-2xl border border-border bg-background transition-colors hover:border-foreground/20"
                 >
-                  <img
+                  <GitHubStatImage
                     src="https://github-readme-stats.vercel.app/api/top-langs/?username=lelyonn&layout=compact&hide_border=true&bg_color=0a0a0b&title_color=c8a96a&text_color=8a8a87&langs_count=6"
                     alt="Top languages for lelyonn"
-                    className="h-auto w-full"
-                    loading="lazy"
+                    fallbackTitle="Top languages"
+                    compact
                   />
                 </a>
               </div>
@@ -319,11 +320,10 @@ export function AboutPage({
                 rel="noreferrer"
                 className="group block overflow-hidden rounded-2xl border border-border bg-background transition-colors hover:border-foreground/20"
               >
-                <img
+                <GitHubStatImage
                   src="https://streak-stats.demolab.com/?user=lelyonn&hide_border=true&background=0a0a0b&stroke=ffffff14&ring=c8a96a&fire=c8a96a&currStreakLabel=c8a96a&sideLabels=8a8a87&dates=8a8a87&sideNums=f5f5f4&currStreakNum=f5f5f4"
                   alt="GitHub streak for lelyonn"
-                  className="h-auto w-full"
-                  loading="lazy"
+                  fallbackTitle="Contribution streak"
                 />
               </a>
 
@@ -334,11 +334,10 @@ export function AboutPage({
                 rel="noreferrer"
                 className="group block overflow-hidden rounded-2xl border border-border bg-background transition-colors hover:border-foreground/20"
               >
-                <img
+                <GitHubStatImage
                   src="https://github-readme-activity-graph.vercel.app/graph?username=lelyonn&bg_color=0a0a0b&color=8a8a87&line=c8a96a&point=c8a96a&area=true&area_color=c8a96a&hide_border=true&custom_title=Contribution+Activity"
                   alt="GitHub contribution graph for lelyonn"
-                  className="h-auto w-full"
-                  loading="lazy"
+                  fallbackTitle="Contribution activity"
                 />
               </a>
             </div>
