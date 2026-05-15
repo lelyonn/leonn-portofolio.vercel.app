@@ -212,19 +212,23 @@ export type BlogPost = {
   readingTime: string;
   tags: string[];
   content?: string;
+  pdfUrl?: string;
 };
 
 export const blogPosts: BlogPost[] = [
-  // Add your posts here. Example:
-  // {
-  //   slug: "my-first-ctf",
-  //   title: "My First CTF: What I Learned from Finishing Last",
-  //   date: "2026-04-01",
-  //   category: "CTF Writeup",
-  //   excerpt: "A breakdown of my first CTF experience...",
-  //   readingTime: "5 min",
-  //   tags: ["CTF", "Web", "Forensics"],
-  // },
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "cyber-academy-penetration-testing-challenge",
+    title: "Web Vulnerability Writeup: Cyber Academy's PT Vulnapp Challenge",
+    date: "17-04-2026",
+    category: "Pentest Writeup",
+    excerpt: "A short summary...",
+    readingTime: "10 min",
+    tags: ["CTF", "Web"],
+    content: "Full markdown here...",
+    pdfUrl: "/files/Pentest_Report_PTVulnapp_LeonardJonathanSaputra.pdf",
+  },
+];
 ];
 
 export const categoryColors: Record<BlogPost["category"], string> = {
