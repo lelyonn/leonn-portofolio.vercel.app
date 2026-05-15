@@ -29,11 +29,11 @@ export const techSkills: Skill[] = [
       { label: "Capture the Flag", icon: Flag },
       { label: "Bug Bounty", icon: Bug },
     ],
-    tools: ["Burp Suite", "Wireshark", "Nmap", "Ghidra", "Kali", "TryHackMe", "HTB"],
+    tools: ["Burp Suite", "Wireshark", "Nmap", "ParrotOS", "TryHackMe", "HTB"],
     links: [
       {
         label: "See full project breakdowns & writeups",
-        href: "/projects",
+        href: "/#/projects",
         note: "CTF writeups, bug bounty reports, and lab notes",
       },
     ],
@@ -49,7 +49,7 @@ export const techSkills: Skill[] = [
       "Comfortable shipping with Postgres, Redis, and SQLite",
       "Care a lot about loading states, empty states, and error states",
     ],
-    tools: ["React", "Next.js", "Node.js", "Postgres", "Tailwind"],
+    tools: ["React", "Next.js", "Node.js", "Tailwind"],
   },
   {
     label: "Web Development",
@@ -62,7 +62,7 @@ export const techSkills: Skill[] = [
       "Lighthouse-conscious — perf budgets aren't decoration",
       "Care about keyboard nav, focus states, and reduced motion",
     ],
-    tools: ["Astro", "Next.js", "Vite", "Tailwind", "Cloudflare"],
+    tools: ["Next.js", "Tailwind", "Cloudflare"],
   },
 ];
 
