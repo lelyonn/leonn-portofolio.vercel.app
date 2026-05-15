@@ -132,45 +132,12 @@ export const otherSkills: Skill[] = [
 export const projects = [
   {
     n: "01",
-    title: "Sentinel Watch",
-    blurb: "A lightweight network anomaly dashboard built around Suricata logs, written for a campus CTF post-mortem.",
-    tags: ["Next.js", "Python", "Blue Team"],
+    title: "COMING SOON!",
+    blurb: "sABAR YAH",
+    tags: ["BRB",],
     year: "2025",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-    credit: "Photo · Luke Chesser / Unsplash",
-    github: null,
-    live: null,
-  },
-  {
-    n: "02",
-    title: "Kelas Cair",
-    blurb: "Real-time classroom collaboration tool with shared whiteboards and async voice notes for vocational schools.",
-    tags: ["React", "WebRTC", "Supabase"],
-    year: "2025",
-    image: "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-    credit: "Photo · Kaleidico / Unsplash",
-    github: null,
-    live: null,
-  },
-  {
-    n: "03",
-    title: "Phish or Pass",
-    blurb: "An educational micro-game that trains students to recognize phishing patterns through 60-second rounds.",
-    tags: ["TypeScript", "Education", "Security"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-    credit: "Photo · Stephen Phillips / Unsplash",
-    github: null,
-    live: null,
-  },
-  {
-    n: "04",
-    title: "Nada — Music Portfolio",
-    blurb: "A minimalist site for showcasing my acoustic covers and original compositions with built-in waveform player.",
-    tags: ["Astro", "WaveSurfer", "Design"],
-    year: "2024",
-    image: "https://images.unsplash.com/photo-1647265194908-6815badcc397?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200",
-    credit: "Photo · Harshveen Kalsi / Unsplash",
+    image: "",
+    credit: "Photo ",
     github: null,
     live: null,
   },
@@ -225,7 +192,253 @@ export const blogPosts: BlogPost[] = [
       "A penetration testing writeup based on Cyber Academy's PT Vulnapp Challenge, covering vulnerability discovery, exploitation, risk rating, and remediation.",
     readingTime: "4 min",
     tags: ["CTF", "Web", "Pentest"],
-    content: "Full markdown here...",
+    content: `
+# Web Vulnerability Writeup: Cyber Academy's PT Vulnapp Challenge
+
+## Overview
+
+This writeup summarizes my penetration testing report for PT Vulnapp, a vulnerable job portal web application used in the Cyber Academy Penetration Testing Challenge.
+
+The assessment was conducted on 17 April 2026 - 18 April 2026 using a grey-box testing approach. The main objective was to identify, validate, and document security weaknesses that could affect the confidentiality, integrity, and availability of the application.
+
+Target application:
+
+\`\`\`txt
+https://jobportal.vulnapp.id
+\`\`\`
+
+## Scope
+
+The assessment focused on the main web application and several critical security areas, including:
+
+- Authentication bypass
+- Account takeover risk
+- SQL Injection
+- Sensitive data exposure
+- File upload security
+- Access control
+- Session management
+- Security header configuration
+- Information disclosure
+
+## Methodology
+
+The test followed a structured penetration testing workflow:
+
+1. Reconnaissance and application mapping
+2. Parameter analysis and request interception
+3. Fuzzing and exploitation
+4. Risk assessment using CVSS
+5. Documentation and remediation planning
+
+## Summary of Findings
+
+The assessment identified 10 vulnerabilities in total.
+
+| Severity | Total |
+|---|---:|
+| Critical | 4 |
+| High | 2 |
+| Medium | 3 |
+| Low | 1 |
+
+The most critical issues were SQL Injection, sensitive data exposure, and unrestricted file upload.
+
+## Vulnerability List
+
+| No | Finding | Severity | Status |
+|---:|---|---|---|
+| 1 | SQL Injection - Login Bypass | Critical | Open |
+| 2 | SQL Injection - Error Based | Critical | Open |
+| 3 | Time-Based Blind SQL Injection - Search Job | Critical | Open |
+| 4 | Sensitive Data Exposure | Critical | Open |
+| 5 | Unrestricted File Upload - Stored Arbitrary File | High | Open |
+| 6 | Insecure Direct Object Reference - Job Enumeration | High | Open |
+| 7 | Insecure Session Termination | Medium | Open |
+| 8 | Weak Password Policy | Medium | Open |
+| 9 | Missing Security Headers | Medium | Open |
+| 10 | Information Disclosure - Nginx Version | Low | Open |
+
+## Key Findings
+
+### SQL Injection - Login Bypass
+
+The login form was vulnerable to SQL Injection. This allowed authentication logic to be bypassed and could let an attacker access the system without valid credentials.
+
+Impact:
+
+- Unauthorized administrator access
+- Sensitive user data exposure
+- Potential data manipulation
+- Business and reputation risk
+
+Recommendation:
+
+Use parameterized queries or prepared statements for all database interactions.
+
+### SQL Injection - Error Based
+
+The application returned detailed database error messages when invalid input was submitted.
+
+Impact:
+
+- Database error disclosure
+- Easier reconnaissance
+- Higher risk of chained attacks
+
+Recommendation:
+
+Disable detailed database errors in public responses and use custom error handling.
+
+### Time-Based Blind SQL Injection
+
+The job search feature was vulnerable to time-based blind SQL Injection. Attackers could infer database behavior by measuring response delay.
+
+Impact:
+
+- Potential database extraction
+- Sensitive data leakage
+- Critical confidentiality risk
+
+Recommendation:
+
+Use prepared statements, strict input validation, and safe query handling.
+
+### Sensitive Data Exposure
+
+The application exposed sensitive profile data through response body and cookie-related behavior.
+
+Impact:
+
+- User credential exposure
+- Account takeover risk
+- Severe confidentiality failure
+
+Recommendation:
+
+Never return password values to the client. Remove sensitive fields from responses and store passwords using secure hashing.
+
+### Unrestricted File Upload
+
+The profile image upload feature allowed arbitrary file uploads without strict server-side validation.
+
+Impact:
+
+- Potential remote code execution
+- Server compromise risk
+- Infrastructure takeover risk
+
+Recommendation:
+
+Allow only safe image types, validate file content, rename uploaded files, and store uploads in a non-executable directory.
+
+### Insecure Direct Object Reference
+
+The job detail endpoint used predictable numeric IDs, allowing enumeration of job records.
+
+Impact:
+
+- Unauthorized access to job data
+- Data scraping risk
+- Possible exposure of private or unpublished records
+
+Recommendation:
+
+Use UUIDs or non-predictable identifiers and enforce server-side authorization checks.
+
+### Insecure Session Termination
+
+The logout process did not properly invalidate the session on the server side.
+
+Impact:
+
+- Session hijacking risk
+- Persistent access after logout
+- Weak session lifecycle management
+
+Recommendation:
+
+Invalidate sessions on logout, apply session timeout, and expire cookies properly.
+
+### Weak Password Policy
+
+The registration feature allowed weak passwords.
+
+Impact:
+
+- Brute force risk
+- Dictionary attack risk
+- Higher account takeover possibility
+
+Recommendation:
+
+Enforce strong password rules on the server side and block common passwords.
+
+### Missing Security Headers
+
+The application did not configure important browser security headers such as Content-Security-Policy and X-Frame-Options.
+
+Impact:
+
+- Clickjacking risk
+- Weaker browser-side protection
+- Higher exposure to client-side attacks
+
+Recommendation:
+
+Configure security headers such as:
+
+\`\`\`txt
+X-Frame-Options: SAMEORIGIN
+Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none';
+\`\`\`
+
+### Information Disclosure - Nginx Version
+
+The server exposed version information through response headers.
+
+Impact:
+
+- Easier reconnaissance
+- More accurate exploit targeting
+- Avoidable information disclosure
+
+Recommendation:
+
+Disable server version disclosure using:
+
+\`\`\`txt
+server_tokens off;
+\`\`\`
+
+## Lessons Learned
+
+This challenge helped me understand that penetration testing is not only about finding vulnerabilities. A useful security assessment must also explain impact, prioritize risk, and provide remediation steps that developers can apply.
+
+The most valuable lessons from this assessment were:
+
+- How to validate vulnerabilities with structured evidence
+- How to classify findings based on technical and business impact
+- How to write professional remediation advice
+- How to communicate security risk clearly
+
+## Skills Practiced
+
+Through this challenge, I practiced:
+
+- Web application penetration testing
+- SQL Injection testing
+- Access control analysis
+- Session security review
+- File upload security testing
+- Security header review
+- CVSS-based risk assessment
+- Technical report writing
+
+## Final Note
+
+This is a public summary of the assessment. The full technical report is available in PDF format through the attached writeup link.
+`,
     proofHref: pentestReportPdf,
   },
 ];
