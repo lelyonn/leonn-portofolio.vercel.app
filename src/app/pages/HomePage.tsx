@@ -1,5 +1,5 @@
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
-import { otherSkills, projects, techSkills } from "../data/portfolio";
+import { blogPosts, categoryColors, otherSkills, projects, techSkills } from "../data/portfolio";
 import { SharedFooter } from "../components/layout/SharedFooter";
 import { SkillMarquee } from "../components/skills/SkillMarquee";
 import { SkillPreview } from "../components/skills/SkillPreview";
@@ -13,6 +13,8 @@ export function HomePage({
   hoveredSkill: Skill | null;
   navigate: (to: Page) => void;
 }) {
+  const featuredPost = blogPosts[0];
+
   return (
     <>
       <section className="relative overflow-hidden">
@@ -210,29 +212,78 @@ export function HomePage({
             </button>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-dashed border-border">
-            <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
-              <div
-                className="text-4xl tracking-tight text-foreground/15"
-                style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}
-              >
-                &ldquo;&rdquo;
+          {featuredPost ? (
+            <button
+              onClick={() => navigate("blog")}
+              className="group block w-full overflow-hidden rounded-2xl border border-border bg-background p-6 text-left transition-colors hover:bg-card md:p-8"
+            >
+              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                <div className="max-w-3xl">
+                  <div className="mb-4 flex flex-wrap items-center gap-3">
+                    <span
+                      className="rounded-full px-2.5 py-0.5 text-xs"
+                      style={{
+                        background: categoryColors[featuredPost.category] + "18",
+                        color: categoryColors[featuredPost.category],
+                      }}
+                    >
+                      {featuredPost.category}
+                    </span>
+                    <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      {featuredPost.date}
+                    </span>
+                    <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      {featuredPost.readingTime}
+                    </span>
+                  </div>
+                  <h3
+                    className="text-2xl tracking-tight md:text-4xl"
+                    style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+                  >
+                    {featuredPost.title}
+                  </h3>
+                  <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {featuredPost.excerpt}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {featuredPost.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-border px-3 py-1 text-xs text-foreground/80">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors group-hover:border-foreground group-hover:bg-foreground group-hover:text-background">
+                  Read post
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </span>
               </div>
-              <p
-                className="text-lg text-muted-foreground"
-                style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}
-              >
-                First post loading&hellip;
-              </p>
-              <button
-                onClick={() => navigate("blog")}
-                className="group mt-2 inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
-              >
-                Go to the blog
-                <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </button>
+            </button>
+          ) : (
+            <div className="overflow-hidden rounded-2xl border border-dashed border-border">
+              <div className="flex flex-col items-center justify-center gap-4 py-20 text-center">
+                <div
+                  className="text-4xl tracking-tight text-foreground/15"
+                  style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}
+                >
+                  &ldquo;&rdquo;
+                </div>
+                <p
+                  className="text-lg text-muted-foreground"
+                  style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}
+                >
+                  First post loading&hellip;
+                </p>
+                <button
+                  onClick={() => navigate("blog")}
+                  className="group mt-2 inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
+                >
+                  Go to the blog
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
