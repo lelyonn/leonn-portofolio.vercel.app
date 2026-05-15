@@ -92,14 +92,14 @@ export function BlogPage({ navigate }: { navigate: (to: Page) => void }) {
                 <div className="mt-2 overflow-hidden rounded-xl border border-border bg-card px-5 py-4 text-left">
                   <div className="text-xs text-muted-foreground/60 mb-2 uppercase tracking-[0.18em]">Quick start</div>
                   <pre className="text-xs text-foreground/70 leading-relaxed">{`{
-  slug: "my-first-post",
-  title: "Post title here",
-  date: "2026-05-15",
-  category: "CTF Writeup",
-  excerpt: "A short summary...",
-  readingTime: "4 min",
-  tags: ["CTF", "Web"],
-  content: "Full markdown here...",
+  //slug: "my-first-post",
+  //title: "Post title here",
+  //date: "2026-05-15",
+  //category: "CTF Writeup",
+  //excerpt: "A short summary...",
+  //readingTime: "4 min",
+  //tags: ["CTF", "Web"],
+  //content: "Full markdown here...",
 }`}</pre>
                 </div>
               </div>
