@@ -212,23 +212,22 @@ export type BlogPost = {
   readingTime: string;
   tags: string[];
   content?: string;
-  pdfUrl?: string;
+  proofHref?: string;
 };
 
-export const blogPosts: BlogPost[] = [
 export const blogPosts: BlogPost[] = [
   {
     slug: "cyber-academy-penetration-testing-challenge",
     title: "Web Vulnerability Writeup: Cyber Academy's PT Vulnapp Challenge",
     date: "17-04-2026",
-    category: "Pentest Writeup",
-    excerpt: "A short summary...",
-    readingTime: "10 min",
-    tags: ["CTF", "Web"],
+    category: "CTF Writeup",
+    excerpt:
+      "A penetration testing writeup based on Cyber Academy's PT Vulnapp Challenge, covering vulnerability discovery, exploitation, risk rating, and remediation.",
+    readingTime: "4 min",
+    tags: ["CTF", "Web", "Pentest"],
     content: "Full markdown here...",
-    pdfUrl: "/files/Pentest_Report_PTVulnapp_LeonardJonathanSaputra.pdf",
+    proofHref: pentestReportPdf,
   },
-];
 ];
 
 export const categoryColors: Record<BlogPost["category"], string> = {

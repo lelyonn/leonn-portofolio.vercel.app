@@ -197,6 +197,17 @@ function BlogPostView({ post, onBack }: { post: BlogPost; onBack: () => void }) 
               <span key={t} className="rounded-full border border-border px-3 py-1 text-xs text-foreground/70">{t}</span>
             ))}
           </div>
+          {post.proofHref && (
+  <a
+    href={post.proofHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-card"
+  >
+    Read PDF Writeup
+    <ArrowUpRight className="h-4 w-4" />
+  </a>
+)}
         </div>
       </section>
 
