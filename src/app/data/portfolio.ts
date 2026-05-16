@@ -235,22 +235,10 @@ The test followed a structured penetration testing workflow:
 4. Risk assessment using CVSS
 5. Documentation and remediation planning
 
-## Summary of Findings
-
-The assessment identified 10 vulnerabilities in total.
-
-| Severity | Total |
-| Critical | 4 |
-| High | 2 |
-| Medium | 3 |
-| Low | 1 |
-
-The most critical issues were SQL Injection, sensitive data exposure, and unrestricted file upload.
 
 Vulnerability List
 
 | No | Finding | Severity | Status |
-|---:|---|---|---|
 | 1 | SQL Injection - Login Bypass | Critical | Open |
 | 2 | SQL Injection - Error Based | Critical | Open |
 | 3 | Time-Based Blind SQL Injection - Search Job | Critical | Open |
@@ -262,171 +250,6 @@ Vulnerability List
 | 9 | Missing Security Headers | Medium | Open |
 | 10 | Information Disclosure - Nginx Version | Low | Open |
 
-Key Findings
-
-SQL Injection - Login Bypass
-
-The login form was vulnerable to SQL Injection. This allowed authentication logic to be bypassed and could let an attacker access the system without valid credentials.
-
-Impact:
-
-- Unauthorized administrator access
-- Sensitive user data exposure
-- Potential data manipulation
-- Business and reputation risk
-
-Recommendation:
-
-Use parameterized queries or prepared statements for all database interactions.
-
-SQL Injection - Error Based
-
-The application returned detailed database error messages when invalid input was submitted.
-
-Impact:
-
-- Database error disclosure
-- Easier reconnaissance
-- Higher risk of chained attacks
-
-Recommendation:
-
-Disable detailed database errors in public responses and use custom error handling.
-
-Time-Based Blind SQL Injection
-
-The job search feature was vulnerable to time-based blind SQL Injection. Attackers could infer database behavior by measuring response delay.
-
-Impact:
-
-- Potential database extraction
-- Sensitive data leakage
-- Critical confidentiality risk
-
-Recommendation:
-
-Use prepared statements, strict input validation, and safe query handling.
-
-### Sensitive Data Exposure
-
-The application exposed sensitive profile data through response body and cookie-related behavior.
-
-Impact:
-
-- User credential exposure
-- Account takeover risk
-- Severe confidentiality failure
-
-Recommendation:
-
-Never return password values to the client. Remove sensitive fields from responses and store passwords using secure hashing.
-
-### Unrestricted File Upload
-
-The profile image upload feature allowed arbitrary file uploads without strict server-side validation.
-
-Impact:
-
-- Potential remote code execution
-- Server compromise risk
-- Infrastructure takeover risk
-
-Recommendation:
-
-Allow only safe image types, validate file content, rename uploaded files, and store uploads in a non-executable directory.
-
-### Insecure Direct Object Reference
-
-The job detail endpoint used predictable numeric IDs, allowing enumeration of job records.
-
-Impact:
-
-- Unauthorized access to job data
-- Data scraping risk
-- Possible exposure of private or unpublished records
-
-Recommendation:
-
-Use UUIDs or non-predictable identifiers and enforce server-side authorization checks.
-
-
-Insecure Session Termination
-
-The logout process did not properly invalidate the session on the server side.
-
-Impact:
-
-- Session hijacking risk
-- Persistent access after logout
-- Weak session lifecycle management
-
-Recommendation:
-
-Invalidate sessions on logout, apply session timeout, and expire cookies properly.
-
-Weak Password Policy
-
-The registration feature allowed weak passwords.
-
-Impact:
-
-- Brute force risk
-- Dictionary attack risk
-- Higher account takeover possibility
-
-Recommendation:
-
-Enforce strong password rules on the server side and block common passwords.
-
-Missing Security Headers
-
-The application did not configure important browser security headers such as Content-Security-Policy and X-Frame-Options.
-
-Impact:
-
-- Clickjacking risk
-- Weaker browser-side protection
-- Higher exposure to client-side attacks
-
-Recommendation:
-
-Configure security headers such as:
-
-\`\`\`txt
-X-Frame-Options: SAMEORIGIN
-Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none';
-\`\`\`
-
-Information Disclosure - Nginx Version
-
-The server exposed version information through response headers.
-
-Impact:
-
-- Easier reconnaissance
-- More accurate exploit targeting
-- Avoidable information disclosure
-
-Recommendation:
-
-Disable server version disclosure using:
-
-\`\`\`txt
-server_tokens off;
-\`\`\`
-
-Lessons Learned
-
-This challenge helped me understand that penetration testing is not only about finding vulnerabilities. A useful security assessment must also explain impact, prioritize risk, and provide remediation steps that developers can apply.
-
-The most valuable lessons from this assessment were:
-
-- How to validate vulnerabilities with structured evidence
-- How to classify findings based on technical and business impact
-- How to write professional remediation advice
-- How to communicate security risk clearly
-
-Skills Practiced
 
 Through this challenge, I practiced:
 
@@ -440,7 +263,6 @@ Through this challenge, I practiced:
 - Technical report writing
 
 Final Note
-
 This is a public summary of the assessment. The full technical report is available in PDF format through the attached writeup link.
 `,
     proofHref: pentestReportPdf,
