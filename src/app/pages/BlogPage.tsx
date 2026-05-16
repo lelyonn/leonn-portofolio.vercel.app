@@ -116,7 +116,6 @@ export function BlogPage({ navigate }: { navigate: (to: Page) => void }) {
                           {post.category}
                         </span>
                         <span className="text-xs text-muted-foreground">{post.date}</span>
-                        <span className="text-xs text-muted-foreground">{post.readingTime} read</span>
                       </div>
                       <h3
                         className="text-xl tracking-tight md:text-2xl"
@@ -171,7 +170,6 @@ function BlogPostView({ post, onBack }: { post: BlogPost; onBack: () => void }) 
               {post.category}
             </span>
             <span className="text-xs text-muted-foreground">{post.date}</span>
-            <span className="text-xs text-muted-foreground">{post.readingTime} read</span>
           </div>
 
           <h1
